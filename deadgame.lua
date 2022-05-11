@@ -12,7 +12,7 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(Self,...)
     local NamecallMethod = getnamecallmethod()
     
     if NamecallMethod:lower() == "kick" and not checkcaller() then
-        return wait(9e9)
+        return
     end
     
     return oldNamecall(Self,...)
@@ -65,7 +65,7 @@ while wait(4) do
     if plr.Character.CurrentClass.Value ~= "none" then
         plr.Character.Humanoid.RootPart.Anchored = false
         task.wait()
-        plr.Character.Humanoid.RootPart.CFrame = CFrame.new(9e2,9e2,9e2)
+        plr.Character.Humanoid.RootPart.CFrame = CFrame.new(1e2,1e2,1e2)
         task.wait()
         plr.Character.Humanoid.RootPart.Anchored = true
         for i,v in pairs(plrs:GetChildren()) do
