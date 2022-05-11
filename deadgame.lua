@@ -63,14 +63,16 @@ while wait(4) do
         end
     end
     if plr.Character.CurrentClass.Value ~= "none" then
-        plr.Character.Humanoid.RootPart.CFrame = CFrame.new(9e2,9e4,9e2)
+        plr.Character.Humanoid.RootPart.Anchored = false
+        task.wait()
+        plr.Character.Humanoid.RootPart.CFrame = CFrame.new(9e2,9e2,9e2)
+        task.wait()
         plr.Character.Humanoid.RootPart.Anchored = true
         for i,v in pairs(plrs:GetChildren()) do
             if v ~= plr then
                 pcall(function()
                     rpls.Remotes.EffectApply:InvokeServer(rKey(),plr.Character,rpls.Classes.PHANTOM.Effects.Blind.Effect,v.Character.Head)
-                    wait(1)
-                    task.wait()
+                    wait(1.1)
                 end)
             end
         end
