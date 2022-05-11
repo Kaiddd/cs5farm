@@ -5,6 +5,18 @@ local https = game:GetService("HttpService")
 local tps = game:GetService("TeleportService")
 local toTp = game:GetService("Workspace").ClassStands["Class - Knight"].MainSkin
 
+local cclosure = syn_newcclosure or newcclosure
+local oldNamecall
+oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(Self,...)
+    local NamecallMethod = getnamecallmethod()
+    
+    if NamecallMethod:lower() == "kick" and not checkcaller() then
+        return wait(9e9)
+    end
+    
+    return oldNamecall(Self,...)
+end))
+
 --AntiAfk not made by me
 local vu = game:GetService("VirtualUser")
 plr.Idled:connect(function()
@@ -49,7 +61,7 @@ while wait(4) do
             if v ~= plr then
                 pcall(function()
                     rpls.Remotes.EffectApply:InvokeServer(rKey(),plr.Character,rpls.Classes.PHANTOM.Effects.Blind.Effect,v.Character.Head)
-                    wait(.5)
+                    wait(.75)
                 end)
             end
         end
