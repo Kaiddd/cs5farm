@@ -63,7 +63,7 @@ while wait(1) do
         end
     end
     if plr.Character.CurrentClass.Value ~= "none" then
-        plr.Character.Humanoid.RootPart.CFrame = CFrame.new(1e2,1e2,1e2)
+        plr.Character.Humanoid.RootPart.CFrame = CFrame.new(9e2,9e2,9e2)
         for i,v in pairs(plrs:GetChildren()) do
             if v ~= plr then
                 pcall(function()
