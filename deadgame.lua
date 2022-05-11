@@ -1,3 +1,4 @@
+repeat wait() until game:IsLoaded()
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 local rpls = game:GetService("ReplicatedStorage")
@@ -16,7 +17,7 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(Self,...)
     
     return oldNamecall(Self,...)
 end))
-
+wait(2)
 local startgame = getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Intro.MainFrame.Menu.PLAY.MouseButton1Click)
 
 for i,v in pairs(startgame) do
