@@ -64,6 +64,7 @@ while wait(1) do
             tps.TeleportToPlaceInstance(tps,game.PlaceId,server.id)
         end
     end
+    repeat wait() until plr.Character:WaitForChild("CurrentClass")
     if plr.Character.CurrentClass.Value ~= "none" then
         repeat wait() until plr.Character:WaitForChild("Humanoid")
         plr.Character.Humanoid.RootPart.Anchored = false
