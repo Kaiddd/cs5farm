@@ -72,7 +72,7 @@ while wait(4) do
             if v ~= plr then
                 pcall(function()
                     rpls.Remotes.EffectApply:InvokeServer(rKey(),plr.Character,rpls.Classes.PHANTOM.Effects.Blind.Effect,v.Character.Head)
-                    wait(1.5)
+                    wait(.6)
                 end)
             end
         end
