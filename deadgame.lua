@@ -49,7 +49,7 @@ local function rKey()
 end
 
 while wait(4) do
-    if #plrs:GetChildren() < 2 then
+    if #plrs:GetChildren() < 4 then
         local sInfo = JSONDecode(https, game.HttpGetAsync(game, format("https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=100", game.PlaceId)))
         local servers = sInfo.data
         
