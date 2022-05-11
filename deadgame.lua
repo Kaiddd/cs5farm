@@ -47,7 +47,7 @@ local function rKey()
     return getsenv(plr.PlayerGui:WaitForChild("LocalProjectile")).pass()
 end
 
-while wait(4) do
+while wait(3) do
     if #plrs:GetChildren() < 4 then
         local sInfo = https.JSONDecode(https, game.HttpGetAsync(game, "https://games.roblox.com/v1/games/"..tostring(game.PlaceId).."/servers/Public?sortOrder=Asc&limit=100"))
         local servers = sInfo.data
