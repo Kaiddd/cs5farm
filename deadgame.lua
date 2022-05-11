@@ -17,6 +17,12 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(Self,...)
     return oldNamecall(Self,...)
 end))
 
+local startgame = getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Intro.MainFrame.Menu.PLAY.MouseButton1Click)
+
+for i,v in pairs(startgame) do
+    v:Fire()
+end
+
 --AntiAfk not made by me
 local vu = game:GetService("VirtualUser")
 plr.Idled:connect(function()
@@ -56,7 +62,8 @@ while wait(4) do
         end
     end
     if plr.Character.CurrentClass.Value ~= "none" then
-        plr.Character.Humanoid.RootPart.CFrame = CFrame.new(9e2,9e2,9e2)
+        plr.Character.Humanoid.RootPart.CFrame = CFrame.new(9e2,9e4,9e2)
+        plr.Character.Humanoid.RootPart.Anchored = true
         for i,v in pairs(plrs:GetChildren()) do
             if v ~= plr then
                 pcall(function()
@@ -66,6 +73,7 @@ while wait(4) do
             end
         end
     else
+        plr.Character.Humanoid.RootPart.Anchored = false
         plr.Character.Humanoid.RootPart.CFrame = toTp.CFrame
     end
 end
