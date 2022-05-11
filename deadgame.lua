@@ -12,7 +12,7 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(Self,...)
     local NamecallMethod = getnamecallmethod()
     
     if NamecallMethod:lower() == "kick" and not checkcaller() then
-        return
+        return wait(9e9)
     end
     
     return oldNamecall(Self,...)
@@ -47,7 +47,7 @@ local function rKey()
     return getsenv(plr.PlayerGui:WaitForChild("LocalProjectile")).pass()
 end
 
-while wait(3) do
+while wait(1) do
     if #plrs:GetChildren() < 4 then
         local sInfo = https.JSONDecode(https, game.HttpGetAsync(game, "https://games.roblox.com/v1/games/"..tostring(game.PlaceId).."/servers/Public?sortOrder=Asc&limit=100"))
         local servers = sInfo.data
@@ -63,21 +63,18 @@ while wait(3) do
         end
     end
     if plr.Character.CurrentClass.Value ~= "none" then
-        plr.Character.Humanoid.RootPart.Anchored = false
-        task.wait()
         plr.Character.Humanoid.RootPart.CFrame = CFrame.new(1e2,1e2,1e2)
-        task.wait()
-        plr.Character.Humanoid.RootPart.Anchored = true
         for i,v in pairs(plrs:GetChildren()) do
             if v ~= plr then
                 pcall(function()
-                    rpls.Remotes.EffectApply:InvokeServer(rKey(),plr.Character,rpls.Classes.PHANTOM.Effects.Blind.Effect,v.Character.Head)
-                    wait(.6)
+                    if v.Character:FindFirstChild("Head") then
+                        rpls.Remotes.EffectApply:InvokeServer(rKey(),plr.Character,rpls.Classes.PHANTOM.Effects.Blind.Effect,v.Character.Head)
+                        wait(.6)
+                    end
                 end)
             end
         end
     else
-        plr.Character.Humanoid.RootPart.Anchored = false
         plr.Character.Humanoid.RootPart.CFrame = toTp.CFrame
     end
 end
