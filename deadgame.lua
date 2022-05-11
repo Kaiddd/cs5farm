@@ -63,7 +63,11 @@ while wait(1) do
         end
     end
     if plr.Character.CurrentClass.Value ~= "none" then
+        plr.Character.Humanoid.RootPart.Anchored = false
+        wait()
         plr.Character.Humanoid.RootPart.CFrame = CFrame.new(9e2,9e2,9e2)
+        wait()
+        plr.Character.Humanoid.RootPart.Anchored = true
         for i,v in pairs(plrs:GetChildren()) do
             if v ~= plr then
                 pcall(function()
@@ -75,6 +79,7 @@ while wait(1) do
             end
         end
     else
+        plr.Character.Humanoid.RootPart.Anchored = false
         plr.Character.Humanoid.RootPart.CFrame = toTp.CFrame
     end
 end
