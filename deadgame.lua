@@ -18,10 +18,12 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(Self,...)
     return oldNamecall(Self,...)
 end))
 repeat wait(1) until plr.PlayerGui.Intro.MainFrame.Menu.Visible or not plr.PlayerGui.Intro.Enabled
-wait(3)
+wait(6)
 for i,v in pairs(getconnections(plr.PlayerGui.Intro.MainFrame.Menu.PLAY.MouseButton1Click)) do
     v:Fire()
 end
+
+repeat wait() until plr.Character:WaitForChild("Humanoid")
 
 --AntiAfk not made by me
 local vu = game:GetService("VirtualUser")
