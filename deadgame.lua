@@ -13,6 +13,18 @@ plr.Idled:connect(function()
    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
+local function filter(tbl, ret)
+    if (type(tbl) == 'table') then
+        local new = {}
+        for i, v in next, tbl do
+            if (ret(i, v)) then
+                new[#new + 1] = v
+            end
+        end
+        return new
+    end
+end
+
 local function rKey()
     return getsenv(plr.PlayerGui:WaitForChild("LocalProjectile")).pass()
 end
