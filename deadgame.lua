@@ -69,7 +69,7 @@ while wait(1) do
                 pcall(function()
                     if v.Character:FindFirstChild("Head") then
                         rpls.Remotes.EffectApply:InvokeServer(rKey(),plr.Character,rpls.Classes.PHANTOM.Effects.Blind.Effect,v.Character.Head)
-                        wait(.6)
+                        wait(.1)
                     end
                 end)
             end
