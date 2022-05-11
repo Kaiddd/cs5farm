@@ -65,6 +65,7 @@ while wait(1) do
         end
     end
     if plr.Character.CurrentClass.Value ~= "none" then
+        repeat wait() until plr.Character:WaitForChild("Humanoid")
         plr.Character.Humanoid.RootPart.Anchored = false
         wait()
         plr.Character.Humanoid.RootPart.CFrame = CFrame.new(9e2,9e2,9e2)
@@ -81,6 +82,7 @@ while wait(1) do
             end
         end
     else
+        repeat wait() until plr.Character:WaitForChild("Humanoid")
         plr.Character.Humanoid.RootPart.Anchored = false
         plr.Character.Humanoid.RootPart.CFrame = toTp.CFrame
     end
