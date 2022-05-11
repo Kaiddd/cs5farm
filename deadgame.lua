@@ -18,7 +18,7 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(Self,...)
     return oldNamecall(Self,...)
 end))
 wait(2)
-local startgame = getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Intro.MainFrame.Menu.PLAY.MouseButton1Click)
+local startgame = getconnections(plr.PlayerGui.Intro.MainFrame.Menu.PLAY.MouseButton1Click)
 
 for i,v in pairs(startgame) do
     v:Fire()
@@ -69,7 +69,8 @@ while wait(4) do
             if v ~= plr then
                 pcall(function()
                     rpls.Remotes.EffectApply:InvokeServer(rKey(),plr.Character,rpls.Classes.PHANTOM.Effects.Blind.Effect,v.Character.Head)
-                    wait(.75)
+                    wait(1)
+                    task.wait()
                 end)
             end
         end
