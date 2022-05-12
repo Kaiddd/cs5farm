@@ -17,6 +17,7 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(Self,...)
     
     return oldNamecall(Self,...)
 end))
+repeat wait() until plr.PlayetGui:WaitForChild("Intro")
 repeat wait(1) until plr.PlayerGui.Intro.MainFrame.Menu.Visible or not plr.PlayerGui.Intro.Enabled
 wait(6)
 for i,v in pairs(getconnections(plr.PlayerGui.Intro.MainFrame.Menu.PLAY.MouseButton1Click)) do
