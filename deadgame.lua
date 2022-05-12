@@ -1,4 +1,4 @@
-repeat wait() until game:IsLoaded()
+repeat wait() until game:IsLoaded();wait(2)
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 local rpls = game:GetService("ReplicatedStorage")
